@@ -1,0 +1,30 @@
+Procedure BorrarElem(var v:vector;var diml:integer;elem:integer);
+ Function DeterminarPos(aux:integer;v:vector;diml:integer):integer;
+ var
+   pos:integer;
+ begin
+  pos:=1;
+  while(pos < = diml) and (aux <> v[pos]) do 
+    pos:=pos+1;
+  if(pos > diml) then
+    pos:=0;
+  DeterminarPos:=pos;
+ end;
+ 
+ Procedure BorrarElem(var v:vector;var diml:integer;pos:integer);
+ var
+   i:integer;
+ begin
+   for i:=pos+1 to diml do
+      v[i-1]:=v[i]
+   diml:=diml-1;
+ end;
+
+var
+  pos:integer;
+begin
+  pos:=DeterminarPos(elem,v,diml);
+  if(pos <> 0) then 
+    BorrarElem(v,diml,pos);
+end;  
+ 

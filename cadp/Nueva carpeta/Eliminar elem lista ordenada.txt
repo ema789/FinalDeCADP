@@ -1,0 +1,21 @@
+//ELIMINAR UN ELEMENTO DE UNA LISTA ORDENADA
+
+Procedure Eliminar(var l:lista;codigo:integer;var exito:boolean);
+var
+ act,ant,nue:lista;
+begin
+ exito:=false;
+ act:=L
+ while(act <> nil) and (act^.dato.cod < codigo) do begin
+   ant:=act;
+   act:=act^.sig;
+ end;
+ if(act <> nil) and (act^.dato.cod = codigo) do begin
+    exito:=true;
+    if(act=l) then
+      l:=l^.sig
+    else
+       ant^.sig:=act^.sig;
+    dispose(act);
+ end;
+end;

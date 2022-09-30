@@ -1,0 +1,21 @@
+   procedure eliminarVariosArregloOrdenado (var v:vectorB; var dl:integer; dato:integer; var e:boolean);
+var i,j,cant:integer;
+begin
+    i:= 1;
+    while (i<dl) AND (v[i].pre < dato) do
+        i:= i + 1;
+    if (v[i].pre <> dato) then 
+       e:=false
+    else begin
+        cant:= 0;
+        while (i<dl) AND (v[i].pre=dato) do begin
+            cant:= cant + 1;
+            i:= i + 1;
+        end;
+        if(i<dl) then
+            for j:= i to dl do
+                v[j - cant]:=v[j];
+        dl:=dl - cant;
+        e:=true;
+    end;
+end;

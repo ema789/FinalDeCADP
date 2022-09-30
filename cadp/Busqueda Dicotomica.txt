@@ -1,0 +1,52 @@
+Procedure BusquedaBicotomica(var v:vector;i:integer;diml:integer;elem:integer);
+var
+ prim,ult,medio:integer;
+begin
+ i:=0;
+ prim:=1;
+ ult:=diml;
+ medio:=(prim+ult) div 2;
+ while(prim < = ult) and (elem <> v[medio]) do begin
+   if(elem < v[medio]) then 
+     ult:=medio - 1
+   else
+     prim:=medio+1;
+ end;
+ medio:=(prim+ult) div 2;
+ if(prim < = ult) then
+   i:=medio
+ else
+    i:=0;
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Procedure Busquedadicotomica(v:vector;ini,fin:indice;dato:integer; var pos:integer);
+var
+ medio:indice;
+begin
+  medio:=(ini+fin) DIV 2;
+  while(ini<=fin) and (dato <> v[medio]) do begin
+   if(dato< v[medio]) then
+     fin:=medio-1
+    else
+     ini:=medio+1;
+   medio:=(ini+fin) DIV 2;
+  end;
+  if(ini<=fin) then
+    pos:=medio
+   else
+    pos:=-1;
+end;
